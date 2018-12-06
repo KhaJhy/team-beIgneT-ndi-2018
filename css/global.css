@@ -1,0 +1,62 @@
+@font-face {
+	font-family: 'Eras Light';
+	src: url('../fonts/ErasLight.ttf');
+}
+
+/* Global */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/backgrounds/day.jpeg') no-repeat center fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+#container {
+    margin: 50px auto;
+    width: 1200px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Eras Light';
+}
+
+.menu {
+    background: rgba(0, 0, 0, 0.4);
+    position: relative;
+    width: calc(100% / 3 - 67.5px);
+    height: 300px;
+    margin: 50px 0;
+    text-align: center;
+}
+
+.menu:hover {
+    box-shadow: 0px 0px 10px 0px;
+}
+
+.menu p {
+    margin: 30px 0 0 0;
+    font-size: 2em;
+    color: #fff;
+}
+
+.menu .fa {
+    color: #fff;
+}
+
+.menu a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #000;
+}
+
+.menu a div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/FontAwesome.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fa {
+    font-style: normal;
+    font-family: 'FontAwesome';
+}
+
+.fa-big {
+    font-size: 5em;
+}
+
+.fa-compass:before {
+    content: "\f14e";
+}
+
+.fa-sun-o:before {
+    content: "\f185";
+}
+
+.fa-info-circle:before {
+    content: "\f05a";
+}
+
+.fa-map-marker:before {
+    content: "\f041";
+}
