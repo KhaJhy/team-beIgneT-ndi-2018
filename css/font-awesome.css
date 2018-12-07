@@ -29,3 +29,7 @@
 .fa-map-marker:before {
     content: "\f041";
 }
+
+.fa-robot-message:before {
+    content: "\f0e6";
+}
