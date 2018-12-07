@@ -1,12 +1,30 @@
 <h1>Ma position actuelle</h1>
 
-<span><a data-url="index">Retour</a></span>
+<span class="back"><a data-url="index">Retour</a></span>
+
 <div id="map"></div>
 
 <script>
-myMap = L.map('map').locate({setView: true, maxZoom: 13});
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(myMap);
-var coords = new L.LatLng(43.622354, 7.076045);
-myMap.setView(coords, 12);
-marker = L.marker(coords).addTo(myMap);
+    myMap = L.map('map').locate({setView: true, maxZoom: 13});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(myMap);
+    var coords = new L.LatLng(43.622354, 7.076045);
+    myMap.setView(coords, 12);
+    marker = L.marker(coords).addTo(myMap);
+
+    $('a').click(function() {
+        var $url = $(this).data('url');
+
+        $.ajax({
+            url : '../' + $url + '.html',
+            type : 'GET',
+            success: function(response) {
+                if (response) {
+                    $('body').fadeOut(function() {
+                        $(this).attr('class', $url).fadeIn();
+                    });
+                    $('#container').html(response);
+                }
+            }
+        });
+    });
 </script>

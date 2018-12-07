@@ -39,11 +39,11 @@
                 </div>
     
                 <div class="menu">
-                    <a data-url="">
+                    <a data-url="chatbot">
                         <div>
-                            <i class="fa fa-big fa-question-circle" aria-hidden="true"></i>
+                            <i class="fa fa-big fa-robot" aria-hidden="true"></i>
 
-                            <p>To Do</p>
+                            <p>Chatbot</p>
                         </div>
                     </a>
                 </div>
@@ -86,33 +86,18 @@
             $('a').click(function() {
                 var $url = $(this).data('url');
 
-                if ($url != 'index') {
-                    $.ajax({
-                        url : 'pages/' + $url + '.html',
-                        type : 'GET',
-                        success: function(response) {
-                            if (response) {
-                                $('body').fadeOut(function() {
-                                    $(this).attr('class', $url).fadeIn();
-                                });
-                                $('#container').html(response);
-                            }
+                $.ajax({
+                    url : 'pages/' + $url + '.html',
+                    type : 'GET',
+                    success: function(response) {
+                        if (response) {
+                            $('body').fadeOut(function() {
+                                $(this).attr('class', $url).fadeIn();
+                            });
+                            $('#container').html(response);
                         }
-                    });
-                } else {
-                    $.ajax({
-                        url : '../' + $url + '.html',
-                        type : 'GET',
-                        success: function(response) {
-                            if (response) {
-                                $('body').fadeOut(function() {
-                                    $(this).attr('class', $url).fadeIn();
-                                });
-                                $('#container').html(response);
-                            }
-                        }
-                    });
-                }
+                    }
+                });
             });
         </script>
     </body>
