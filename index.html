@@ -84,13 +84,15 @@
                 console.log($(this).data('url'));
 
                 $.ajax({
-                    type: 'GET',
-                    url: 'pages/' + $(this).data('url') + '.html',
-                    function (response) {
-                        $('#container').html(response);
+                    url : 'pages/' + $(this).data('url') + '.html',
+                    type : 'GET',
+                    success: function(response) {
+                        if(response) {
+                            $('#container').html(response);
+                        }
                     }
                 });
-            })
+            });
         </script>
     </body>
 </html>
