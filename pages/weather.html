@@ -1,0 +1,72 @@
+<div id="container">
+    <span class="back"><a data-url="index">Retour</a></span>
+
+    <h1></h1>
+
+    <div id="weather-infos">
+        <div class="weather-info" data-hour="MAINTENANT">
+            <span class="hour"></span> - <span class="temp"></span>
+
+            <p>
+                <img src="https://www.prevision-meteo.ch/style/images/icon/ciel-voile.png" alt="" />
+                <span class="condition"></span>
+            </p>
+        </div>
+
+        <div class="weather-info" data-hour="10H00">
+            <span class="hour"></span> - <span class="temp"></span>
+
+            <p>
+                <img src="https://www.prevision-meteo.ch/style/images/icon/ciel-voile.png" alt="" />
+                <span class="condition"></span>
+            </p>
+        </div>
+
+        <div class="weather-info" data-hour="16H00">
+            <span class="hour"></span> - <span class="temp"></span>
+
+            <p>
+                <img src="https://www.prevision-meteo.ch/style/images/icon/ciel-voile.png" alt="" />
+                <span class="condition"></span>
+            </p>
+        </div>
+
+        <div class="weather-info" data-hour="22H00">
+            <span class="hour"></span> - <span class="temp"></span>
+
+            <p>
+                <img src="https://www.prevision-meteo.ch/style/images/icon/ciel-voile.png" alt="" />
+                <span class="condition"></span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    coords = null;
+
+    navigator.geolocation.getCurrentPosition(function(location) {
+        coords = {lat: location.coords.latitude, lon: location.coords.longitude};
+
+        $.getJSON('https://www.prevision-meteo.ch/services/json/lat=' + coords.lat + 'lng=' + coords.lon, function(json) {
+
+            for (i = 0; i < $('.weather-info').length; i++) {
+                if(i === 0) {
+                    $('.weather-info .hour').eq(i).html($('.weather-info').eq(i).data('hour'));
+                    $('.weather-info .temp').eq(i).html(json.current_condition.tmp);
+                    $('.weather-info img').eq(i).attr('src', json.current_condition.icon);
+                    $('.weather-info .condition').eq(i).html(json.current_condition.condition);
+                } else {
+                    $('.weather-info .hour').eq(i).html($('.weather-info').eq(i).data('hour'));
+                    $('.weather-info .temp').eq(i).html(json.fcst_day_0.hourly_data[$('.weather-info').eq(i).data('hour')]['TMP2m']);
+                    $('.weather-info img').eq(i).attr('src', json.fcst_day_0.hourly_data[$('.weather-info').eq(i).data('hour')]['ICON']);
+                    $('.weather-info .condition').eq(i).html(json.fcst_day_0.hourly_data[$('.weather-info').eq(i).data('hour')]['CONDITION']);
+                }
+            }
+
+            console.log(json);
+
+            $('h1').html('Météo du ' + json.current_condition.date);
+        });
+    });
+</script>

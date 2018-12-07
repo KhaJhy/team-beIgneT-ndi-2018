@@ -3,6 +3,11 @@
 	src: url('../fonts/ErasLight.ttf');
 }
 
+@font-face {
+	font-family: 'Eras Bold';
+	src: url('../fonts/ErasBold.ttf');
+}
+
 /* Global */
 
 body {
@@ -120,4 +125,31 @@ h1 {
 iframe {
     width: 100%;
     height: calc(100vh - 240px);
+}
+
+.hour {
+    font-family: 'Eras Bold';
+    font-size: 30px;
+}
+
+.temp {
+    font-family: 'Eras Light';
+    font-size: 30px;
+}
+
+#weather-infos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-info {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    width: 20%;
+    color: #fff;
+    font-size: 20px;
+}
+
+.weather-info img {
+    vertical-align: middle;
 }
