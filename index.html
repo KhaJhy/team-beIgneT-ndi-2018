@@ -84,13 +84,14 @@
 
         <script>
             $('a').click(function() {
-                console.log($(this).data('url'));
-
                 $.ajax({
                     url : 'pages/' + $(this).data('url') + '.html',
                     type : 'GET',
                     success: function(response) {
-                        if(response) {
+                        if (response) {
+                            $('body').fadeOut(function() {
+                                $(this).attr('class', $(this).data('url')).fadeIn();
+                            });
                             $('#container').html(response);
                         }
                     }

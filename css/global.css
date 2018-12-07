@@ -14,16 +14,28 @@ body {
     overflow: hidden;
 }
 
-.jungle {
+.position {
     background: url('../img/backgrounds/jungle-day.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
-.savannah {
-    background: url('../img/backgrounds/savannah-day.jpg') no-repeat center fixed;
+.itinerary {
+    background: url('../img/backgrounds/savanah-day.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
-.snow {
+.weather {
     background: url('../img/backgrounds/snow-day.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.environment {
+    background: url('../img/backgrounds/desert-day.jpeg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
 #container {
@@ -45,6 +57,7 @@ body {
     max-height: 30vh;
     margin: 50px 0;
     text-align: center;
+    cursor: pointer;
 }
 
 .menu:hover {
