@@ -86,18 +86,33 @@
             $('a').click(function() {
                 var $url = $(this).data('url');
 
-                $.ajax({
-                    url : 'pages/' + $url + '.html',
-                    type : 'GET',
-                    success: function(response) {
-                        if (response) {
-                            $('body').fadeOut(function() {
-                                $(this).attr('class', $url).fadeIn();
-                            });
-                            $('#container').html(response);
+                if ($url != 'index') {
+                    $.ajax({
+                        url : 'pages/' + $url + '.html',
+                        type : 'GET',
+                        success: function(response) {
+                            if (response) {
+                                $('body').fadeOut(function() {
+                                    $(this).attr('class', $url).fadeIn();
+                                });
+                                $('#container').html(response);
+                            }
                         }
-                    }
-                });
+                    });
+                } else {
+                    $.ajax({
+                        url : '../' + $url + '.html',
+                        type : 'GET',
+                        success: function(response) {
+                            if (response) {
+                                $('body').fadeOut(function() {
+                                    $(this).attr('class', $url).fadeIn();
+                                });
+                                $('#container').html(response);
+                            }
+                        }
+                    });
+                }
             });
         </script>
     </body>
