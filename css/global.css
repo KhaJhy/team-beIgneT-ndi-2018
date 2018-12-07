@@ -90,4 +90,12 @@ body {
 
 #map {
     height: 500px;
+    max-height: 50vh;
+}
+
+h1 {
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 20px;
+    font-family: 'Eras Light';
 }
