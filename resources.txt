@@ -1,0 +1,6 @@
+<script>
+    // Get city and country
+    $.get("http://ipinfo.io", function(response) {
+        console.log(response.city, response.country);
+    }, "jsonp");
+</script>

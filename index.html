@@ -6,13 +6,14 @@
         <link rel="stylesheet" href="css/global.css" />
         <link rel="stylesheet" href="css/responsive.css" />
         <link rel="stylesheet" href="css/font-awesome.css" />
+        <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
     </head>
 
     <body>
-        <nav id="container">
+        <div id="container">
             <div class="icons">
                 <div class="menu">
-                    <a href="/position">
+                    <a data-url="position">
                         <div>
                             <i class="fa fa-big fa-map-marker" aria-hidden="true"></i>
 
@@ -22,7 +23,7 @@
                 </div>
     
                 <div class="menu">
-                    <a href="/itinerary">
+                    <a data-url="itinerary">
                         <div>
                             <i class="fa fa-big fa-compass" aria-hidden="true"></i>
 
@@ -32,7 +33,7 @@
                 </div>
     
                 <div class="menu">
-                    <a href="">
+                    <a data-url="">
                         <div>
                             <i class="fa fa-big fa-question-circle" aria-hidden="true"></i>
 
@@ -44,7 +45,7 @@
         
             <div class="icons">
                 <div class="menu">
-                    <a href="/weather">
+                    <a data-url="weather">
                         <div>
                             <i class="fa fa-big fa-sun-o" aria-hidden="true"></i>
 
@@ -54,7 +55,7 @@
                 </div>
     
                 <div class="menu">
-                    <a href="/environment">
+                    <a data-url="environment">
                         <div>
                             <i class="fa fa-big fa-info-circle" aria-hidden="true"></i>
 
@@ -64,7 +65,7 @@
                 </div>
     
                 <div class="menu">
-                    <a href="">
+                    <a data-url="">
                         <div>
                             <i class="fa fa-big fa-question-circle" aria-hidden="true"></i>
 
@@ -73,6 +74,20 @@
                     </a>
                 </div>
             </div>
-        </nav>
+        </div>
+
+        <script>
+            $('a').click(function() {
+                console.log($(this).data('url'));
+
+                $.ajax({
+                    type: 'GET',
+                    url: 'pages/' + $(this).data('url') + '.html',
+                    function (response) {
+                        $('#container').html(response);
+                    }
+                });
+            })
+        </script>
     </body>
 </html>

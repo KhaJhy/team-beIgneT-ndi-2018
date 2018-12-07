@@ -1,0 +1,11 @@
+<h1>Ma position actuelle</h1>
+
+<div id="map"></div>
+
+<script>
+myMap = L.map('map').locate({setView: true, maxZoom: 13});
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(myMap);
+var coords = new L.LatLng(43.622354, 7.076045);
+myMap.setView(coords, 12);
+marker = L.marker(coords).addTo(myMap);
+</script>

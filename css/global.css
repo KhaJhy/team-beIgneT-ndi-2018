@@ -8,9 +8,22 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('../img/backgrounds/day.jpeg') no-repeat center fixed;
+    background: url('../img/backgrounds/desert-day.jpeg') no-repeat center fixed;
 	-webkit-background-size: cover;
-	background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.jungle {
+    background: url('../img/backgrounds/jungle-day.jpg') no-repeat center fixed;
+}
+
+.savannah {
+    background: url('../img/backgrounds/savannah-day.jpg') no-repeat center fixed;
+}
+
+.snow {
+    background: url('../img/backgrounds/snow-day.png') no-repeat center fixed;
 }
 
 #container {
@@ -28,7 +41,8 @@ body {
     background: rgba(0, 0, 0, 0.4);
     position: relative;
     width: calc(100% / 3 - 67.5px);
-    height: 30vh;
+    height: 200px;
+    max-height: 30vh;
     margin: 50px 0;
     text-align: center;
 }
